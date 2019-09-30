@@ -1,0 +1,8 @@
+{% extends 'templates/base.twig' %}
+
+{% block content %}
+    <h2>Welcome Front page</h2>
+    {% for img in logo %}
+        {{ dump(img) }}
+    {% endfor %}
+{% endblock %}
