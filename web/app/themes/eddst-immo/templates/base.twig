@@ -5,21 +5,19 @@
     </head>
 {% endblock %}
 
-    <body class="{{body_class}}">
-    <header>
+    <body class="realestate_version {{body_class}}">
+    <header class="header header_style_01">
         {% include 'templates/navbar.twig' %}
     </header>
 
-    <section>
-        {% block content %}
-        {% endblock %}
-    </section>
+    {% block content %}
+    {% endblock %}
 
     {% block footer %}
-        <footer>
+        <footer class="footer">
             {% include 'templates/footer.twig' %}
+            {{ function('wp_footer') }}
         </footer>
-        {{ function('wp_footer') }}
     {% endblock %}
     </body>
 </html>

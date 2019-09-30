@@ -50,12 +50,8 @@ add_theme_support('post-thumbnails');
 add_filter('timber/context', 'add_to_context');
 
 function add_to_context($context) {
-    $query = [
-        'post_type' => 'attachment',
-        'name' => 'logo'
-    ];
 
-    $context['homepage_logo'] = new \Timber\PostQuery($query);
+    $context['homepage'] = new \Timber\Post('accueil');
     $context['menu'] = new \Timber\Menu('navbar');
 
     return $context;
