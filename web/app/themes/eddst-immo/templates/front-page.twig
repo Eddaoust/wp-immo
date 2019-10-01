@@ -21,6 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 wow slideInLeft hidden-xs hidden-sm">
+                    {# TODO Make a search engine #}
                     <div class="contact_form">
                         <h3><i class="fa fa-envelope-o grd1 global-radius"></i> QUICK APPOINTMENT</h3>
                         <form id="contactform1" class="row" name="contactform" method="post">
@@ -64,6 +65,7 @@
                     <div class="big-tagline clearfix">
                         <h2>{{ post.home_title }}</h2>
                         <p class="lead">{{ post.subtitle }}</p>
+                        {# TODO Link to another page#}
                         <a data-scroll href="#gallery" class="btn btn-light btn-radius grd1 btn-brd">View Gallery</a>
                     </div>
                 </div>
@@ -75,6 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="top-feature owl-carousel owl-theme">
+                    {% if post.custom.box_logo_1|length > 0 %}
                     <div class="item">
                         <div class="single-feature">
                             <div class="icon"><img src="{{ Image(post.custom.box_logo_1).src }}" class="img-responsive" alt=""></div>
@@ -82,27 +85,34 @@
                             <p>{{ post.custom.box_content_1 }}</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="single-feature">
-                            <div class="icon"><img src="{{ Image(post.custom.box_logo_2).src }}" class="img-responsive" alt=""></div>
-                            <h4><a href="#">{{ post.custom.box_title_1 }}</a></h4>
-                            <p>{{ post.custom.box_content_1 }}</p>
+                    {% endif %}
+                    {% if post.custom.box_logo_2|length > 0 %}
+                        <div class="item">
+                            <div class="single-feature">
+                                <div class="icon"><img src="{{ Image(post.custom.box_logo_2).src }}" class="img-responsive" alt=""></div>
+                                <h4><a href="#">{{ post.custom.box_title_2 }}</a></h4>
+                                <p>{{ post.custom.box_content_2 }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-feature">
-                            <div class="icon"><img src="{{ Image(post.custom.box_logo_3).src }}" class="img-responsive" alt=""></div>
-                            <h4><a href="#">{{ post.custom.box_title_1 }}</a></h4>
-                            <p>{{ post.custom.box_content_1 }}</p>
+                    {% endif %}
+                    {% if post.custom.box_logo_3|length > 0 %}
+                        <div class="item">
+                            <div class="single-feature">
+                                <div class="icon"><img src="{{ Image(post.custom.box_logo_3).src }}" class="img-responsive" alt=""></div>
+                                <h4><a href="#">{{ post.custom.box_title_3 }}</a></h4>
+                                <p>{{ post.custom.box_content_3 }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-feature">
-                            <div class="icon"><img src="{{ Image(post.custom.box_logo_4).src }}" class="img-responsive" alt=""></div>
-                            <h4><a href="#">{{ post.custom.box_title_1 }}</a></h4>
-                            <p>{{ post.custom.box_content_1 }}</p>
+                    {% endif %}
+                    {% if post.custom.box_logo_4|length > 0 %}
+                        <div class="item">
+                            <div class="single-feature">
+                                <div class="icon"><img src="{{ Image(post.custom.box_logo_4).src }}" class="img-responsive" alt=""></div>
+                                <h4><a href="#">{{ post.custom.box_title_4 }}</a></h4>
+                                <p>{{ post.custom.box_content_4 }}</p>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -119,11 +129,48 @@
                         <h4>{{ post.custom.main_box_subtitle }}</h4>
                         <h2>{{ post.custom.main_box_title }}</h2>
                         <p>{{ post.custom.main_box_content }}</p>
+                        {# TODO Add link to the related post #}
                         <a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <div id="agent" class="parallax section db parallax-off" style="background-image:url('../assets/uploads/parallax_02.png');">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>Agent Details</h3>
+                    <p class="lead">{{ post.custom.agent_subtitle }}</p>
+                </div><!-- end col -->
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="message-box">
+                        <h4>{{ post.custom.agent_job }}</h4>
+                        <h2>{{ post.custom.agent_name }}</h2>
+                        <p>{{ post.custom.agent_description }}</p>
+
+                        {# TODO Add mailto system or link to contact form#}
+                        <a href="#contact" data-scroll class="btn btn-light global-radius btn-brd grd1 effect-1">Contact Me</a>
+                    </div><!-- end messagebox -->
+                </div><!-- end col -->
+                <div class="col-md-3">
+                    <div class="post-media wow fadeIn">
+                        <img src="{{ Image(post.custom.agent_image).src }}" alt="" class="img-responsive">
+                    </div><!-- end media -->
+                </div><!-- end col -->
+                <div class="col-md-3">
+                    <div class="agencies_meta clearfix">
+                        <span><i class="fa fa-envelope "></i> <a href="mailto:support@sitename.com">{{ post.custom.agent_mail }}</a></span>
+                        <span><i class="fa fa-phone-square "></i>{{ post.custom.agent_phone }}</span>
+                    </div><!-- end agencies_meta -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div>
+    </div>
+
+
 {% endblock %}

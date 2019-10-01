@@ -1,1 +1,54 @@
-Copyright {{"now"|date('Y')}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="widget clearfix">
+                <div class="widget-title">
+                    <img src="{{ Image(homepage.custom.logo).src }}" alt="">
+                </div>
+                <p>{{ homepage.custom.agency_description }}</p>
+            </div><!-- end clearfix -->
+        </div><!-- end col -->
+
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="widget clearfix">
+                <div class="widget-title">
+                    <h3>Info Link</h3>
+                </div>
+
+                <ul class="twitter-widget footer-links">
+                    {% for item in menu.items %}
+                        <li><a class="{{ item.classes|join(' ') }}" href="{{ item.link }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul><!-- end links -->
+            </div><!-- end clearfix -->
+        </div><!-- end col -->
+
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="widget clearfix">
+                <div class="widget-title">
+                    <h3>Contact Details</h3>
+                </div>
+
+                <ul class="footer-links">
+                    <li><a href="mailto:#">{{ homepage.custom.agency_mail }}</a></li>
+                    <li><a href="#">www.yoursite.com</a></li>
+                    <li>{{ homepage.custom.agency_address }}</li>
+                    <li>{{ homepage.custom.agency_phone }}</li>
+                </ul><!-- end links -->
+            </div><!-- end clearfix -->
+        </div><!-- end col -->
+
+        <div class="col-md-2 col-sm-2 col-xs-12">
+            <div class="widget clearfix">
+                <div class="widget-title">
+                    <h3>Social</h3>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="{{ homepage.custom.agency_facebook }}"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li><a href="{{ homepage.custom.agency_twitter }}"><i class="fa fa-twitter"></i> Twitter</a></li>
+                </ul><!-- end links -->
+            </div><!-- end clearfix -->
+        </div><!-- end col -->
+
+    </div><!-- end row -->
+</div><!-- end container -->
