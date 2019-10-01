@@ -1,0 +1,15 @@
+{
+    "name": "edmonddaoust/eddst-immo",
+    "authors": [
+        {
+            "name": "Eddaoust",
+            "email": "edmond.daoust@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Eddst\\": "src/Eddst/"
+        }
+    }
+}
