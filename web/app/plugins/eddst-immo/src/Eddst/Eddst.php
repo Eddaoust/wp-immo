@@ -6,8 +6,6 @@ namespace Eddst;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 use Eddst\Models\HooksInterface;
-use Eddst\Models\HooksFrontInterface;
-use Eddst\Models\HooksAdminInterface;
 
 class Eddst implements HooksInterface{
 
@@ -53,21 +51,7 @@ class Eddst implements HooksInterface{
 	 */
 	public function hooks(){
 		foreach ($this->getActions() as $key => $action) {
-			switch(true) {  // Cela m'évite de faire un if / else if
-				case $action instanceof HooksAdminInterface:
-					if (is_admin()) {
-						$action->hooks();
-					}
-					break;
-				case $action instanceof HooksFrontInterface:
-					if (!is_admin()) {
-						$action->hooks();
-					}
-					break;
-				case $action instanceof HooksInterface:
-					$action->hooks();
-					break;
-			}
+            $action->hooks();
 		}
 	}
 }
