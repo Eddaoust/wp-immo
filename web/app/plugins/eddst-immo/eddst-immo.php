@@ -74,15 +74,29 @@ $homeFooter = new AcfFieldsGroup([
 ], 'Accueil Footer', acfRule('page', '==', get_page_by_path('accueil')->ID), 7);
 
 // Property: Init fields for
-$test = new AcfFieldsGroup([
-    (new AcfField('Test', 'test', AcfHelper::TYPE_TEXT))->get()
-], 'Test', acfRule('post_type', '==', 'property'), 0);
+$propertyFields = new AcfFieldsGroup([
+    (new AcfField('Titre', 'property_title', AcfHelper::TYPE_TEXT))->get(),
+    (new AcfField('Sous-Titre', 'property_subtitle', AcfHelper::TYPE_TEXT))->get(),
+    (new AcfField('Description', 'property_description', AcfHelper::TYPE_TEXTAREA))->get(),
+    (new AcfField('Image 1', 'property_image_1', AcfHelper::TYPE_IMAGE))->get(),
+    (new AcfField('Image 2', 'property_image_2', AcfHelper::TYPE_IMAGE))->get(),
+    (new AcfField('Image 3', 'property_image_3', AcfHelper::TYPE_IMAGE))->get(),
+    (new AcfField('Image 4', 'property_image_4', AcfHelper::TYPE_IMAGE))->get(),
+    (new AcfField('Chambres', 'property_rooms', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Emplacements parking', 'property_parking', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Nombre d\'étages', 'property_step', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Bureaux', 'property_office', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Cave', 'property_basement', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Grenier', 'property_roof', AcfHelper::TYPE_NUMBER))->get(),
+    (new AcfField('Raccordement eau', 'property_trash', AcfHelper::TYPE_BOOL))->get(),
+    (new AcfField('Raccordement égout', 'property_trasheee', AcfHelper::TYPE_BOOL))->get(),
+], 'Infos Propriété', acfRule('post_type', '==', 'property'), 0);
 
 
 $eddst = new \Eddst\Eddst([
     $property,
     $homeHeader, $homeBox1, $homeBox2, $homeBox3, $homeBox4, $homeMainBox, $homeAgentDetails, $homeFooter,
-    $test
+    $propertyFields
 ]);
 $eddst->execute();
 
